@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   currentCategoryName : string = "Books";
   searchMode !: boolean;
   pageNumber : number = 1;
-  pageSize : number = 10;
+  pageSize : number = 20;
   totalElements : number = 0;
   previousCategoryId : number = 1;
 
@@ -28,6 +28,14 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
+  }
+
+  updatePageSize(newPageSize: number){
+
+    this.pageSize = newPageSize;
+    this.pageNumber = 1;
+    this.listProducts();
+
   }
 
   listProducts(){
