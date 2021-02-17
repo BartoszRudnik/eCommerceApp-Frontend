@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   pageSize : number = 20;
   totalElements : number = 0;
   previousCategoryId : number = 1;
+  previousKeyword : string = '';
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
       
@@ -84,9 +85,18 @@ export class ProductListComponent implements OnInit {
 
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
 
-    this.productService.searchProducts(theKeyword).subscribe(
+    if(theKeyword != this.previousKeyword){
+      this.pageNumber = 1;
+    }
+
+    this.previousKeyword = theKeyword;
+
+    this.productService.searchProductsPaginate(theKeyword, this.pageNumber - 1, this.pageSize).subscribe(
       data => {
-        this.products = data;
+        this.products = data._embedded.products;
+        this.pageNumber = data.page.number + 1;
+        this.pageSize = data.page.size;
+        this.totalElements = data.page.totalElements;
       }
     )
 
