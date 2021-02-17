@@ -13,8 +13,13 @@
 
                     <div class="product-box">
 
-                        <img src="{{tmpProduct.imageUrl}}" class="image-responsive">
-                        <h1>{{tmpProduct.name}}</h1>
+                        <a routerLink="/products/{{ tmpProduct.id }}">
+                            <img src="{{tmpProduct.imageUrl}}" class="image-responsive">
+                        </a>
+
+                        <a routerLink="/products/{{tmpProduct.id}}">
+                            <h1>{{tmpProduct.name}}</h1>
+                        </a>
 
                         <div class="price">{{ tmpProduct.unitPrice | currency: 'USD' }}</div>
 

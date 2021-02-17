@@ -1,6 +1,8 @@
 export class Product {
 
     constructor(
+
+        public id: string,
         public sku: string,
         public name: string,
         public description: string,
@@ -10,6 +12,7 @@ export class Product {
         public unitsInStock: number,
         public dateCreated: Date,
         public lastUpdated: Date,
+        
     ){}
 
 }
