@@ -7,26 +7,26 @@ import { CartItem } from '../common/cart-item';
 })
 export class CartService {
 
-  cartItems : CartItem [];
+  cartItems : CartItem [] = [];
 
   totalPrice : Subject<number> = new Subject<number>();
   totalQuantity : Subject<number> = new Subject<number>();
 
   constructor() { 
-    this.cartItems = [];
+    
   }
 
   addToCart(cartItem : CartItem){
 
     let alreadyExistingInCart : boolean = false;
-    let existingCartItem : CartItem;
-
+    
     if(this.cartItems.length > 0){
 
-      for(let tmpCartItem of this.cartItems){
+      for(let tmpCartItem of this.cartItems){        
 
-        if(tmpCartItem == cartItem){
+        if(tmpCartItem.id == cartItem.id){
 
+          tmpCartItem.quantity++;
           alreadyExistingInCart = true;          
           break;
 
@@ -36,16 +36,8 @@ export class CartService {
       
     }
 
-    if(alreadyExistingInCart){
-
-      existingCartItem = cartItem;
-      existingCartItem.quantity++;
-
-    }
-    else{
-      
+    if(!alreadyExistingInCart){
       this.cartItems.push(cartItem);
-      
     }
 
     this.computeCartTotals();
