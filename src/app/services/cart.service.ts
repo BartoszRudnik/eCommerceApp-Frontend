@@ -27,9 +27,7 @@ export class CartService {
 
         if(tmpCartItem == cartItem){
 
-          alreadyExistingInCart = true;
-          existingCartItem = tmpCartItem;
-          existingCartItem.quantity++;
+          alreadyExistingInCart = true;          
           break;
 
         }
@@ -38,8 +36,16 @@ export class CartService {
       
     }
 
-    if(alreadyExistingInCart == false){
+    if(alreadyExistingInCart){
+
+      existingCartItem = cartItem;
+      existingCartItem.quantity++;
+
+    }
+    else{
+      
       this.cartItems.push(cartItem);
+      
     }
 
     this.computeCartTotals();
