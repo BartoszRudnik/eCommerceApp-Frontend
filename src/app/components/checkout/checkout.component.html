@@ -263,7 +263,7 @@
 
                 </div>
 
-                <div formGroupName="billingAddress" class="form-area">
+                <div formGroupName="creditCard" class="form-area">
 
                     <h3> Credit Card </h3>
 
@@ -277,7 +277,7 @@
 
                         <div class="input-space">
 
-                            <select formControlName="state">
+                            <select formControlName="cardType">
 
                                 <option>to do</option>
 
@@ -345,7 +345,7 @@
 
                         <div class="input-space">
 
-                            <select formControlName="state">
+                            <select formControlName="expirationMonth">
 
                                 <option>to do</option>
 
@@ -365,7 +365,7 @@
 
                         <div class="input-space">
 
-                            <select formControlName="state">
+                            <select formControlName="expirationYear">
 
                                 <option>to do</option>
 
@@ -375,6 +375,15 @@
 
                     </div>
 
+                </div>
+
+                <div class="form-area">
+
+                    <h3>Review Your Order</h3>
+
+                    <p>Total Quantity: {{totalQuantity}} </p> 
+                    <p>Shipping: Free</p>
+                    <p>Total Price: {{totalPrice | currency: 'USD'}} </p>                    
 
                 </div>
 
