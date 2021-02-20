@@ -96,17 +96,32 @@
                     <tr>
 
                         <td colspan="2"></td>
+
                         <td style="font-weight: bold">
 
                             <p>Total Quantity: {{totalQuantity}}</p>
                             <p>Shipping: FREE</p>
                             <P>Total Price: {{totalPrice | currency: 'USD'}}</P>
 
-                            <button (click)="clearShoppingCart()" class="btn btn-primary btn-sm">
+                            <div class="row no-gutters">
 
-                                Clear shopping cart
+                                <div class="col">
 
-                            </button>
+                                    <a routerLink="/checkout" class="btn btn-primary"> Checkout </a>
+
+                                </div>
+
+                                <div class="col">
+
+                                    <button (click)="clearShoppingCart()" class="btn btn-primary btn-sm">
+
+                                        Clear shopping cart
+
+                                    </button>
+
+                                </div>
+
+                            </div>
 
                         </td>
 
