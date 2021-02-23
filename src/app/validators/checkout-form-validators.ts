@@ -34,4 +34,21 @@ export class CheckoutFormValidators {
 
     }
 
+    static polishZipCode(control: FormControl) : ValidationErrors | null {
+
+        let checkValue : string = control.value;
+        
+        if(checkValue.match('[0-9]{2}[-][0-9]{3}')){
+
+            return null;
+
+        }
+        else{
+
+            return {'polishZipCode': true};
+
+        }
+
+    }
+
 }
