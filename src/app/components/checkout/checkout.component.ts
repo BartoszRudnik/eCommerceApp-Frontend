@@ -62,11 +62,18 @@ export class CheckoutComponent implements OnInit {
 
       billingAddress: this.formBuilder.group({
 
-        country: [''],
-        street: [''],
-        city: [''],
-        state: [''],
-        zipCode: ['']
+        country: new FormControl('', [Validators.required]),
+
+        street: new FormControl('', [Validators.required, Validators.minLength(2),
+          CheckoutFormValidators.notOnlyWhitespace]),
+
+        city: new FormControl('', [Validators.required, Validators.minLength(2),
+          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+
+        state: new FormControl('', [Validators.required]),
+
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(2),
+          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.polishZipCode])
 
       }),
 
@@ -108,6 +115,36 @@ export class CheckoutComponent implements OnInit {
       }
 
     )
+
+  }
+
+  get billingAddressCountry(){
+
+    return this.checkoutFormGroup.get('billingAddress.country');
+
+  }
+
+  get billingAddressState(){
+
+    return this.checkoutFormGroup.get('billingAddress.state');
+
+  }
+
+  get billingAddressCity(){
+
+    return this.checkoutFormGroup.get('billingAddress.city');
+
+  }
+
+  get billingAddressStreet(){
+
+    return this.checkoutFormGroup.get('billingAddress.street');
+
+  }
+
+  get billingAddressZipCode(){
+
+    return this.checkoutFormGroup.get('billingAddress.zipCode')
 
   }
 
