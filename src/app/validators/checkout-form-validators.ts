@@ -38,7 +38,7 @@ export class CheckoutFormValidators {
 
         let checkValue : string = control.value;
         
-        if(checkValue.match('[0-9]{2}[-][0-9]{3}')){
+        if(checkValue.match('[0-9]{2}[-][0-9]{3}$')){
 
             return null;
 
@@ -55,7 +55,7 @@ export class CheckoutFormValidators {
 
         let checkValue : string = control.value;
 
-        if(checkValue.match('[0-9]{16}')){
+        if(checkValue.match('^[0-9]{16}$')){
 
             return null;
 
@@ -72,7 +72,7 @@ export class CheckoutFormValidators {
 
         let checkValue : string = control.value;
 
-        if(checkValue.match('[0-9]{3}')){
+        if(checkValue.match('^[0-9]{3}$')){
 
             return null;
 
