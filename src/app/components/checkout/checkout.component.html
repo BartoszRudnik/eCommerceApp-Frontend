@@ -485,6 +485,16 @@
 
                             </select>
 
+                            <div *ngIf="cardType?.invalid && (cardType?.dirty || cardType?.touched)" class="alert alert-danger mt-1">
+
+                                <div *ngIf="cardType?.errors?.required">
+
+                                    Card Type is required
+
+                                </div>
+                                
+                            </div>
+
                         </div>
 
                     </div>
@@ -500,6 +510,22 @@
                         <div class="input-space">
 
                             <input formControlName="nameOnCard" type="text">
+
+                            <div *ngIf="nameOnCard?.invalid && (nameOnCard?.dirty || nameOnCard?.touched)" class="alert alert-danger mt-1">
+
+                                <div *ngIf="nameOnCard?.errors?.required || nameOnCard?.errors?.notOnlyWhitespace">
+
+                                    Name on card is required
+
+                                </div>
+
+                                <div *ngIf="nameOnCard?.errors?.minlength || nameOnCard?.errors?.charAndWhitespace">
+
+                                   Name on card must be at least 2 characters
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -517,6 +543,22 @@
 
                             <input formControlName="cardNumber" type="text">
 
+                            <div *ngIf="cardNumber?.invalid && (cardNumber?.dirty || cardNumber?.touched)" class="alert alert-danger mt-1">
+
+                                <div *ngIf="cardNumber?.errors?.required || cardNumber?.errors?.notOnlyWhitespace">
+
+                                    Card number is required
+
+                                </div>
+
+                                <div *ngIf="cardNumber?.errors?.cardNumberLength">
+
+                                   Card number must be 16 characters
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -532,6 +574,22 @@
                         <div class="input-space">
 
                             <input formControlName="securityCode" type="text">
+
+                            <div *ngIf="securityCode?.invalid && (securityCode?.dirty || securityCode?.touched)" class="alert alert-danger mt-1">
+
+                                <div *ngIf="securityCode?.errors?.required">
+
+                                    Security code is required
+
+                                </div>
+
+                                <div *ngIf="securityCode?.errors?.securityCodeLength">
+
+                                   Security Code must be 3 characters
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -556,7 +614,7 @@
                                 </option>
 
                             </select>
-
+                           
                         </div>
 
                     </div>
@@ -580,7 +638,7 @@
                                 </option>
 
                             </select>
-
+                            
                         </div>
 
                     </div>

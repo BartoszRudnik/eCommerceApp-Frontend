@@ -51,4 +51,38 @@ export class CheckoutFormValidators {
 
     }
 
+    static cardNumberLength(control: FormControl) : ValidationErrors | null{
+
+        let checkValue : string = control.value;
+
+        if(checkValue.match('[0-9]{16}')){
+
+            return null;
+
+        }
+        else{
+
+            return {'cardNumberLength': true};
+
+        }
+
+    }
+
+    static securityCodeLength(control: FormControl) : ValidationErrors | null {
+
+        let checkValue : string = control.value;
+
+        if(checkValue.match('[0-9]{3}')){
+
+            return null;
+
+        }
+        else{
+
+            return {'securityCodeLength': true};
+
+        }
+
+    }
+
 }
