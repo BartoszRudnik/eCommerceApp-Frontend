@@ -24,7 +24,7 @@ export class CartService {
 
       for (let tmpCartItem of this.cartItems) {
 
-        if (tmpCartItem.id == cartItem.id) {
+        if (tmpCartItem.id === cartItem.id) {
 
           tmpCartItem.quantity++;
           alreadyExistingInCart = true;
@@ -67,11 +67,11 @@ export class CartService {
 
       for (let tmpCartItem of this.cartItems) {
 
-        if (tmpCartItem.id == cartItem.id) {
+        if (tmpCartItem.id === cartItem.id) {
 
           tmpCartItem.quantity--;
 
-          if(tmpCartItem.quantity == 0){
+          if(tmpCartItem.quantity === 0){
 
             this.removeItemFromCart(tmpCartItem);
 

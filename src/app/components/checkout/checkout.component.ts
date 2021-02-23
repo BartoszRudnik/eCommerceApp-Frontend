@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { ShopFormService } from 'src/app/services/shop-form.service';
+import { CheckoutFormValidators } from 'src/app/validators/checkout-form-validators';
 
 @Component({
   selector: 'app-checkout',
@@ -32,8 +33,12 @@ export class CheckoutComponent implements OnInit {
 
       customer: this.formBuilder.group({
 
-        firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        firstName: new FormControl('', [Validators.required, Validators.minLength(2),
+          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+
+        lastName: new FormControl('', [Validators.required, Validators.minLength(2),
+          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+
         email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
       }),
@@ -99,19 +104,19 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  get firstName(){
+  get firstName() {
 
     return this.checkoutFormGroup.get('customer.firstName');
 
   }
 
-  get lastName(){
+  get lastName() {
 
     return this.checkoutFormGroup.get('customer.lastName');
 
   }
 
-  get email(){
+  get email() {
 
     return this.checkoutFormGroup.get('customer.email');
 
@@ -119,7 +124,7 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit() {
 
-    if(this.checkoutFormGroup.invalid){
+    if (this.checkoutFormGroup.invalid) {
 
       this.checkoutFormGroup.markAllAsTouched();
 
@@ -137,7 +142,7 @@ export class CheckoutComponent implements OnInit {
         .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
 
     }
-    else {      
+    else {
 
       this.checkoutFormGroup.controls.billingAddress.reset();
 
@@ -154,7 +159,7 @@ export class CheckoutComponent implements OnInit {
 
     let startMonth: number;
 
-    if (selectedYear == currentYear) {
+    if (selectedYear === currentYear) {
       startMonth = new Date().getMonth() + 1;
     }
     else {
@@ -181,7 +186,7 @@ export class CheckoutComponent implements OnInit {
 
       data => {
 
-        if (formGroupName == 'shippingAddress') {
+        if (formGroupName === 'shippingAddress') {
 
           this.statesShipping = data;
 
@@ -190,7 +195,7 @@ export class CheckoutComponent implements OnInit {
 
           this.statesBilling = data;
 
-        }        
+        }
 
       }
 
