@@ -226,7 +226,7 @@
 
                             <select formControlName="state">
 
-                                <option *ngFor="let state of statesShipping">
+                                <option *ngFor="let state of statesShipping" [ngValue]="state">
 
                                     {{state.name}}
 
@@ -408,7 +408,7 @@
 
                             <select formControlName="state">
 
-                                <option *ngFor="let state of statesBilling">
+                                <option *ngFor="let state of statesBilling" [ngValue]="state">
 
                                     {{state.name}}
 

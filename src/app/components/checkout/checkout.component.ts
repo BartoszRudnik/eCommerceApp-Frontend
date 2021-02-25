@@ -32,7 +32,7 @@ export class CheckoutComponent implements OnInit {
   statesBilling: State[] = [];
 
   constructor(private formBuilder: FormBuilder, private shopFormService: ShopFormService,
-     private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
+    private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -41,10 +41,10 @@ export class CheckoutComponent implements OnInit {
       customer: this.formBuilder.group({
 
         firstName: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
 
         lastName: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
 
         email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
 
@@ -55,15 +55,15 @@ export class CheckoutComponent implements OnInit {
         country: new FormControl('', [Validators.required]),
 
         street: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace]),
 
         city: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
 
         state: new FormControl('', [Validators.required]),
 
         zipCode: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.polishZipCode])
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.polishZipCode])
 
       }),
 
@@ -72,15 +72,15 @@ export class CheckoutComponent implements OnInit {
         country: new FormControl('', [Validators.required]),
 
         street: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace]),
 
         city: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
 
         state: new FormControl('', [Validators.required]),
 
         zipCode: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.polishZipCode])
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.polishZipCode])
 
       }),
 
@@ -89,7 +89,7 @@ export class CheckoutComponent implements OnInit {
         cardType: new FormControl('', [Validators.required]),
 
         nameOnCard: new FormControl('', [Validators.required, Validators.minLength(2),
-          CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
+        CheckoutFormValidators.notOnlyWhitespace, CheckoutFormValidators.charAndWhitespace]),
 
         cardNumber: new FormControl('', [Validators.required, CheckoutFormValidators.cardNumberLength]),
 
@@ -133,7 +133,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  reviewCartDetails(){
+  reviewCartDetails() {
 
     this.cartService.totalQuantity.subscribe(
 
@@ -149,97 +149,97 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  get cardType(){
+  get cardType() {
 
     return this.checkoutFormGroup.get('creditCard.cardType');
 
   }
 
-  get nameOnCard(){
+  get nameOnCard() {
 
     return this.checkoutFormGroup.get('creditCard.nameOnCard');
 
   }
 
-  get cardNumber(){
+  get cardNumber() {
 
     return this.checkoutFormGroup.get('creditCard.cardNumber');
 
   }
 
-  get securityCode(){
+  get securityCode() {
 
     return this.checkoutFormGroup.get('creditCard.securityCode');
 
   }
 
-  get expirationMonth(){
+  get expirationMonth() {
 
     return this.checkoutFormGroup.get('creditCard.expirationMonth');
 
   }
 
-  get expirationYear(){
+  get expirationYear() {
 
     return this.checkoutFormGroup.get('creditCard.expirationYear');
 
   }
 
-  get billingAddressCountry(){
+  get billingAddressCountry() {
 
     return this.checkoutFormGroup.get('billingAddress.country');
 
   }
 
-  get billingAddressState(){
+  get billingAddressState() {
 
     return this.checkoutFormGroup.get('billingAddress.state');
 
   }
 
-  get billingAddressCity(){
+  get billingAddressCity() {
 
     return this.checkoutFormGroup.get('billingAddress.city');
 
   }
 
-  get billingAddressStreet(){
+  get billingAddressStreet() {
 
     return this.checkoutFormGroup.get('billingAddress.street');
 
   }
 
-  get billingAddressZipCode(){
+  get billingAddressZipCode() {
 
     return this.checkoutFormGroup.get('billingAddress.zipCode')
 
   }
 
-  get shippingAddressCountry(){
+  get shippingAddressCountry() {
 
     return this.checkoutFormGroup.get('shippingAddress.country');
 
   }
 
-  get shippingAddressState(){
+  get shippingAddressState() {
 
     return this.checkoutFormGroup.get('shippingAddress.state');
 
   }
 
-  get shippingAddressCity(){
+  get shippingAddressCity() {
 
     return this.checkoutFormGroup.get('shippingAddress.city');
 
   }
 
-  get shippingAddressStreet(){
+  get shippingAddressStreet() {
 
     return this.checkoutFormGroup.get('shippingAddress.street');
 
   }
 
-  get shippingAddressZipCode(){
+  get shippingAddressZipCode() {
 
     return this.checkoutFormGroup.get('shippingAddress.zipCode');
 
@@ -270,7 +270,7 @@ export class CheckoutComponent implements OnInit {
       this.checkoutFormGroup.markAllAsTouched();
       return;
 
-    }    
+    }
 
     let purchase = new Purchase();
 
@@ -300,7 +300,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  resetCart(){
+  resetCart() {
 
     this.cartService.cartItems = [];
     this.cartService.totalPrice.next(0);
@@ -312,7 +312,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  completePurchase(purchase : Purchase){
+  completePurchase(purchase: Purchase) {
 
     let order = new Order();
     order.totalPrice = this.totalPrice;
@@ -326,14 +326,14 @@ export class CheckoutComponent implements OnInit {
     purchase.orderItems = orderItems;
 
     purchase.billingAddress = this.checkoutFormGroup.controls['billingAddress'].value;
-    const billingState : State = JSON.parse(JSON.stringify(purchase.billingAddress.state));
-    const billingCountry : Country = JSON.parse(JSON.stringify(purchase.billingAddress.country));
+    const billingState: State = JSON.parse(JSON.stringify(purchase.billingAddress.state));
+    const billingCountry: Country = JSON.parse(JSON.stringify(purchase.billingAddress.country));
     purchase.billingAddress.state = billingState.name;
     purchase.billingAddress.country = billingCountry.name;
 
     purchase.shippingAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
-    const shippingState : State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
-    const shippingCountry : Country = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
+    const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
+    const shippingCountry: Country = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
     purchase.shippingAddress.state = shippingState.name;
     purchase.shippingAddress.country = shippingState.name;
 
@@ -345,13 +345,14 @@ export class CheckoutComponent implements OnInit {
 
     if (event.target.checked) {
 
-      this.statesBilling = this.statesShipping;
+      this.checkoutFormGroup.controls.billingAddress.setValue(this.checkoutFormGroup.controls.shippingAddress.value);
 
-      this.checkoutFormGroup.controls.billingAddress
-        .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+      this.statesBilling = this.statesShipping;
 
     }
     else {
+
+      this.statesBilling = [];
 
       this.checkoutFormGroup.controls.billingAddress.reset();
 
@@ -406,9 +407,11 @@ export class CheckoutComponent implements OnInit {
 
         }
 
+        formGroup?.get('state')?.setValue(data[0]);
+
       }
 
-    )
+    )    
 
   }
 
